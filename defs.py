@@ -1,5 +1,5 @@
 #Функция приветствия
-from nowdatetime import time_now
+from nowdatetime import dt_now, time_now
 
 def say_hello(current_hour):
     if current_hour <= 5 or current_hour >= 23:

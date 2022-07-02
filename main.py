@@ -4,7 +4,7 @@ import telebot
 from telebot import types
 from tokenbot import token
 from defs import hi_users
-from nowdatetime import dt_now
+from nowdatetime import dt_now, time_now
 
 bot = telebot.TeleBot(token)
 
@@ -18,7 +18,7 @@ def startbot(message):
     item_four = types.KeyboardButton('📈Акции')
     keyboard_reply.add(item_one, item_two, item_tree, item_four)
     bot.send_message(message.chat.id,
-                     f'👋 {hi_users()}\n Я — чат-бот.\nПоказываю курс фиатных валют, криптовалют и акции.',
+                     f'👋 {hi_users()} Я — чат-бот.\nПоказываю курс фиатных валют, криптовалют и акции.',
                      reply_markup=keyboard_reply)
 
 
