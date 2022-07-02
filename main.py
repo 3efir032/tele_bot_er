@@ -3,7 +3,7 @@ from parsing_investing import info_usd, info_eur
 import telebot
 from telebot import types
 from tokenbot import token
-from defs import *
+from defs import hi_users
 from nowdatetime import dt_now
 
 bot = telebot.TeleBot(token)
