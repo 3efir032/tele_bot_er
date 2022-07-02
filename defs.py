@@ -14,5 +14,12 @@ def say_hello(current_hour):
     # Дальше код написан без отступов: этот код уже вне функции.
 
     # Несколько раз вызовем функцию say_hello() с разными аргументами:
+def hi_users():
+    hi_user = say_hello(int(time_now))
+    return hi_user
 
-hi_user = say_hello(int(time_now))
+def main():
+    hi_users()
+
+if __name__ == "__main__":
+    main()

@@ -1,10 +1,10 @@
 from currency import USD, EUR, AMD, CNY, GBP, CHF, JPY
 from parsing_investing import info_usd, info_eur
-from nowdatetime import dt_now
-from defs import hi_user
 import telebot
 from telebot import types
 from tokenbot import token
+from defs import *
+from nowdatetime import dt_now
 
 bot = telebot.TeleBot(token)
 
@@ -17,7 +17,8 @@ def startbot(message):
     item_tree = types.KeyboardButton('🌏МИР')
     item_four = types.KeyboardButton('📈Акции')
     keyboard_reply.add(item_one, item_two, item_tree, item_four)
-    bot.send_message(message.chat.id, '👋 Привет, я — чат-бот.\nПоказываю курс фиатных валют, криптовалют и акции.',
+    bot.send_message(message.chat.id,
+                     f'👋 {hi_users()}\n Я — чат-бот.\nПоказываю курс фиатных валют, криптовалют и акции.',
                      reply_markup=keyboard_reply)
 
 
