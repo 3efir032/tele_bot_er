@@ -1,0 +1,35 @@
+apt install htop -y
+htop 
+
+Выполнить в консоле сервера пре первом запуске:
+
+apt update
+apt install -y htop git build-essential libssl-dev libffi-dev python3-pip python3-dev python3-setuptools
+
+------
+
+Создаем пользователя:
+
+adduser alex
+whoami
+su - alex
+
+Клонируем репозиторий:
+
+cd /home/alex/
+git clone https://github.com/3efir032/tele_bot_er.git
+
+Вертуальное окружение:
+
+cd /home/alex/tele_bot_er/.venv
+python3 -m venv .venv
+
+Активируем виртуальное окружение 
+activate /home/alex/tele_bot/.venv
+source /home/alex/tele_bot/.venv/bin/activate
+which python
+#pip install -r /home/alex/tele_bot/pip-requirements.txt
+
+Проверить бот:
+home/alex/tele_bot/.venv/bin/python home/alex/tele_bot/main.py/
+
