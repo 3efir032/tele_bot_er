@@ -3,8 +3,6 @@ from parsing_investing import info_usd, info_eur
 import telebot
 from telebot import types
 from tokenbot import token
-#from defs import hi_users
-#from nowdatetime import dt_now, time_now
 
 bot = telebot.TeleBot(token)
 
@@ -59,7 +57,7 @@ def callback_inline(call):
     except Exception as e:
         print(repr(e))
 
-    # bot.edit_message_text(chat_id = call.message.chat.id, message_id=call.message.message_id, text = 'КУРС НА БИРЖЕ', reply_markup = None)
+   
 
 
 if __name__ == "__main__":
