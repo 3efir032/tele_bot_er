@@ -3,8 +3,8 @@ from parsing_investing import info_usd, info_eur
 import telebot
 from telebot import types
 from tokenbot import token
-from defs import hi_users
-from nowdatetime import dt_now, time_now
+#from defs import hi_users
+#from nowdatetime import dt_now, time_now
 
 bot = telebot.TeleBot(token)
 
@@ -18,7 +18,7 @@ def startbot(message):
     item_four = types.KeyboardButton('📈Акции')
     keyboard_reply.add(item_one, item_two, item_tree, item_four)
     bot.send_message(message.chat.id,
-                     f'👋 {hi_users()} Я — чат-бот.\nПоказываю курс фиатных валют, криптовалют и акции.',
+                     f'👋 Привет Я — чат-бот.\nПоказываю курс фиатных валют, криптовалют и акции.',
                      reply_markup=keyboard_reply)
 
 
@@ -29,7 +29,7 @@ def get_text(message):
                   f'🇪🇺 EUR/RUB: {EUR}\n' \
                   f'🇦🇲 AMD/RUB: {AMD}\n' \
                   f'""""""""""""""""""""\n' \
-                  f'Курс валют от ЦБ РФ на {dt_now}'
+                  f'Курс валют от ЦБ РФ на сегодня'
         markup = types.InlineKeyboardMarkup(row_width=1)
         item1 = types.InlineKeyboardButton('КУРС НА БИРЖЕ', callback_data='good')
         markup.add(item1)
@@ -43,7 +43,7 @@ def get_text(message):
                     f'🇨🇭 CHF/RUB: {CHF}\n' \
                     f'🇯🇵 JPY/RUB: {JPY}\n ' \
                     f'""""""""""""""""""""\n' \
-                    f'Курс валют от ЦБ РФ на {dt_now}'
+                    f'Курс валют от ЦБ РФ на сегодня'
         bot.send_message(message.chat.id, money_now)
     elif message.text == '📈Акции':
         pass
