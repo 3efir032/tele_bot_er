@@ -1,5 +1,5 @@
 from currency import info_money_usd, info_money
-from parsing_investing import info_usd, info_eur
+from parsing_investing import price
 from coinparsing import infocoin
 import telebot
 from telebot import types
@@ -48,7 +48,7 @@ def callback_inline(call):
     try:
         if call.message:
             if call.data == "good":
-                info_bi = f"{info_usd}\n{info_eur}"
+                info_bi = price()
                 bot.send_message(call.message.chat.id, info_bi)
     except Exception as e:
         print(repr(e))

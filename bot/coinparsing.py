@@ -1,7 +1,9 @@
 import requests
 from bs4 import BeautifulSoup
 
-'''ОПИСАНИЕ'''
+'''ОПИСАНИЕ - парсит курс крипты с investing.com
+Код работает медленно
+'''
 
 
 def url_wedside(link_coin):
@@ -17,7 +19,7 @@ def url_wedside(link_coin):
         return '443'
 
 
-def parseng_coin(soup, idcoin):
+def parsing_coin(soup, idcoin):
     price_coin = soup.find("div", class_="fullHeaderTwoColumnPage--top cryptoTopColumn").find("span",
                                                                                               class_="inlineblock").find(
         "span", class_=f"pid-{idcoin}-last").text
@@ -27,7 +29,7 @@ def parseng_coin(soup, idcoin):
 def start(namecoin, idcoin):
     url = url_wedside(namecoin)
     if url != '443':
-        return parseng_coin(url, idcoin)
+        return parsing_coin(url, idcoin)
     else:
         return 'error'
 
