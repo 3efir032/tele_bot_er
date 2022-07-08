@@ -1,11 +1,16 @@
 apt install htop -y
-htop 
+htop
 
 Выполнить в консоле сервера пре первом запуске:
 
 apt update
 apt install -y htop git build-essential libssl-dev libffi-dev python3-pip python3-dev python3-setuptools
-
+apt install python3.9-venv
+pip3 install bs4
+pip3 install pyTelegramBotAPI
+pip3 install requests
+pip3 install lxml
+pip3 install pycbrf
 ------
 
 Создаем пользователя:
@@ -25,11 +30,41 @@ cd /home/alex/tele_bot_er/.venv
 python3 -m venv .venv
 
 Активируем виртуальное окружение 
-activate /home/alex/tele_bot/.venv
-source /home/alex/tele_bot/.venv/bin/activate
+activate /home/alex/tele_bot_er/.venv
+source /home/root/tele_bot_er/.venv/bin/activate
 which python
-#pip install -r /home/alex/tele_bot/pip-requirements.txt
+#pip install -r /home/alex/tele_bot_er/pip-requirements.txt
 
 Проверить бот:
-home/alex/tele_bot/.venv/bin/python home/alex/tele_bot/main.py/
+/home/alex/tele_bot_er/.venv/bin/python home/alex/tele_bot_er/bot/main.py
 
+ЗАПУСК СЕРВЕРА-----------------------
+
+Переходим в папку system
+
+cd ../
+cd etc/
+cd systemd/
+cd system/
+
+vim telebot.service
+i - начать печать
+---
+[Service]
+WorkingDirectory = /root/tele_bot_er/bot/
+User = root
+ExecStart=/usr/bin/python3 main.py
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+-----
+ЗАПУСК СЕРВЕРА
+
+systemctl enable telebot.service
+systemctl start telebot.service
+systemctl stop telebot.service
+
+
+https://blog.mailon.com.ua/простой-telegram-bot-для-выполнения-команд-linux-на-с/

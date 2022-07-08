@@ -12,7 +12,6 @@ invest_usd = soup.find("div", class_="quotesBarContentWrapper").find("span", id 
 percent_usd = soup.find("div", class_="quotesBarContentWrapper").find("span", id = "qb_pair_change_2186").text
 info_usd = f'🇺🇸 USD/RUB: {invest_usd} | {percent_usd}'
 
-
 invest_eur = soup.find("div", class_ = "quotesBarContentWrapper").find("span", id = "qb_pair_last_1691").text
 percent_eur = soup.find("div", class_ = "quotesBarContentWrapper").find("span", id = "qb_pair_change_1691").text
 info_eur = f'🇪🇺 EUR/RUB: {invest_eur} | {percent_eur}'
