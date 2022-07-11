@@ -35,10 +35,16 @@ cd system/
 vim telebot.service
 i - начать печать
 ---
+[Unit]
+Description=TelegramBotMonitoring
+After=network.target
+
 [Service]
+Type=simple
 WorkingDirectory = /root/tele_bot_er/bot/
 User = root
 ExecStart=/usr/bin/python3 main.py
+Restert=always
 
 [Install]
 WantedBy=multi-user.target
