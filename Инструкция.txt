@@ -13,27 +13,12 @@ pip3 install lxml
 pip3 install pycbrf
 ------
 
-Создаем пользователя:
-
-adduser alex
-whoami
-su - alex
-
-Клонируем репозиторий:
-
-cd /home/alex/
 git clone https://github.com/3efir032/tele_bot_er.git
 
 Вертуальное окружение:
 
 cd /home/alex/tele_bot_er/.venv
 python3 -m venv .venv
-
-Активируем виртуальное окружение 
-activate /home/alex/tele_bot_er/.venv
-source /home/root/tele_bot_er/.venv/bin/activate
-which python
-#pip install -r /home/alex/tele_bot_er/pip-requirements.txt
 
 Проверить бот:
 /home/alex/tele_bot_er/.venv/bin/python home/alex/tele_bot_er/bot/main.py

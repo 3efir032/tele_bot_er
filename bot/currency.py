@@ -16,23 +16,25 @@ def world_money():
 
 def info_money():
     USD, EUR, AMD, CNY, GBP, CHF, JPY = world_money()
-    money_now = f'🇨🇳 CNY/RUB: {CNY}\n' \
+    CNY1 = int(CNY)/10
+    JPY1 = JPY/100
+    money_now = f'🇨🇳 CNY/RUB: {CNY1}\n' \
                 f'🇬🇧 GBP/RUB: {GBP}\n' \
                 f'🇨🇭 CHF/RUB: {CHF}\n' \
-                f'🇯🇵 JPY/RUB: {JPY}\n ' \
-                f'""""""""""""""""""""\n' \
-                f'Курс ЦБ РФ на сегодня'
+                f'🇯🇵 JPY/RUB: {JPY1}\n ' \
+
     return money_now
 
 
 def info_money_usd():
     USD, EUR, AMD, CNY, GBP, CHF, JPY = world_money()
+    AMD1 = AMD/10
     usd_eur_amd = f'🇺🇸 USD/RUB: {USD}\n' \
-              f'🇪🇺 EUR/RUB: {EUR}\n' \
-              f'🇦🇲 AMD/RUB: {AMD}\n' \
-              f'""""""""""""""""""""\n' \
-              f'Курс ЦБ РФ на сегодня'
+                  f'🇪🇺 EUR/RUB: {EUR}\n' \
+                  f'🇦🇲 AMD/RUB: {AMD1}\n' \
+
     return usd_eur_amd
+
 
 def main():
     info_money_usd()
