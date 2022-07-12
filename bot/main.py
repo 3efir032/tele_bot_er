@@ -1,5 +1,6 @@
 from currency import info_money_usd, info_money
 import schedule
+import time
 import telebot
 from telebot import types
 from tokenbot import token
@@ -15,7 +16,8 @@ def info_money():
     schedule.every(1).minutes.do(write2_json)
     while True:
         schedule.run_pending()
-
+        time.sleep(1)
+info_money()
 
 @bot.message_handler(commands=['start'])
 def startbot(message):
@@ -58,7 +60,7 @@ def callback_inline(call):
     except Exception as e:
         print(repr(e))
 
-info_money()
+
 if __name__ == "__main__":
 
     bot.polling(none_stop=True)
