@@ -1,10 +1,11 @@
 {
-  "COIN": [
-    {
-      "url": "https://ru.investing.com/crypto/bitcoin",
-      "numcoin": "1057391",
-      "name": "bitcoin",
-      "price": "19.880,9"
-    }
+  "FUTURESNOW": [
+    [
+      "19.792,1",
+      "1.087,43",
+      "0,9992",
+      "1,0008",
+      "225,69"
+    ]
   ]
 }
