@@ -69,12 +69,6 @@ def write1_json():
     data["FUTURESNOW"].append(Futuresmarket().__dict__)
     write(data, 'futuresmarket.json')
 
-#def sch_coin():
-    #schedule.every(1).seconds.do(write_json)
-    #schedule.every(1).minutes.do(write_json)
-    #while True:
-        #schedule.run_pending()
-
 def main():
     write1_json()
 
