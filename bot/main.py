@@ -1,10 +1,8 @@
-from currency import info_money_usd, info_money
-import schedule
-import time
 import telebot
 from telebot import types
 from tokenbot import token
 from data import fururesnow, coin
+from currency import info_money_usd, info_money
 
 
 bot = telebot.TeleBot(token)
