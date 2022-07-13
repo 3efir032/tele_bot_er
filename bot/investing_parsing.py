@@ -1,5 +1,4 @@
 import requests  # Модуль для обработки URL
-import schedule
 from bs4 import BeautifulSoup  # Модуль для работы с HTML
 import json
 
