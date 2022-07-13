@@ -5,19 +5,11 @@ import telebot
 from telebot import types
 from tokenbot import token
 from data import fururesnow, coin
-from investing_parsing import write1_json
-from coin_parsing import write2_json
 
 
 bot = telebot.TeleBot(token)
 
-def info_money():
-    schedule.every(1).minutes.do(write1_json)
-    schedule.every(1).minutes.do(write2_json)
-    while True:
-        schedule.run_pending()
-        time.sleep(1)
-info_money()
+
 
 @bot.message_handler(commands=['start'])
 def startbot(message):
@@ -31,6 +23,7 @@ def startbot(message):
                      reply_markup=keyboard_reply)
 
 
+    
 @bot.message_handler(content_types=['text'])
 def get_text(message):
     if message.text == '🇷🇺RUS':
@@ -62,5 +55,4 @@ def callback_inline(call):
 
 
 if __name__ == "__main__":
-
     bot.polling(none_stop=True)
