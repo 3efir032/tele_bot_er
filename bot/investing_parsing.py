@@ -2,6 +2,7 @@ import requests  # Модуль для обработки URL
 import schedule
 from bs4 import BeautifulSoup  # Модуль для работы с HTML
 import json
+import time
 
 class Futuresmarket:
     URL = 'https://ru.investing.com'
@@ -62,21 +63,22 @@ def write(data, filename): # Запись файла JSON
     with open(filename, 'w', encoding='utf-8') as file:
         json.dump(data, file, indent = 2)
 
-def write1_json():
+def write_json():
     data = {
         "FUTURESNOW": [],
     }
     data["FUTURESNOW"].append(Futuresmarket().__dict__)
     write(data, 'futuresmarket.json')
 
-#def sch_coin():
+def sch_coin():
     #schedule.every(1).seconds.do(write_json)
-    #schedule.every(1).minutes.do(write_json)
-    #while True:
-        #schedule.run_pending()
+    schedule.every(1).minutes.do(write_json)
+    while True:
+        schedule.run_pending()
+        time.sleep(5)
 
 def main():
-    write1_json()
+   sch_coin()
 
 if __name__ == '__main__':
     main()
