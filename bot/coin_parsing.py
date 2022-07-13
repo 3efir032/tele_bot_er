@@ -66,21 +66,21 @@ def write(data, filename): # Запись файла JSON
     with open(filename, 'w', encoding='utf-8') as file:
         json.dump(data, file, indent = 2)
 
-def write2_json():
+def write_json():
     data = {
         "COIN": [],
     }
     data["COIN"].append(Coin().__dict__)
     write(data, 'price_coin.json')
 
-#def sch_coin():
-    #schedule.every(1).seconds.do(write_json)
-    #schedule.every(1).minutes.do(write_json)
-    #while True:
-        #schedule.run_pending()
+def sch_coin():
+    schedule.every(1).seconds.do(write_json)
+    schedule.every(1).minutes.do(write_json)
+    while True:
+        schedule.run_pending()
 
 def main():
-    write2_json()
+    sch_coin()
 
 if __name__ == '__main__':
     main()
