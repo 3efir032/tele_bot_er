@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import json
 import schedule
+import time
 
 
 class Coin:
@@ -60,27 +61,25 @@ class Coin:
             "span", class_=f"pid-1061448-last").text
         return price_bnb
 
-def write(data, filename): # Запись файла JSON
+
+def write(data, filename):  # Запись файла JSON
     data = json.dumps(data)
     data = json.loads(str(data))
     with open(filename, 'w', encoding='utf-8') as file:
-        json.dump(data, file, indent = 2)
+        json.dump(data, file, indent=2)
 
-def write2_json():
+
+def write_json():
     data = {
         "COIN": [],
     }
     data["COIN"].append(Coin().__dict__)
     write(data, 'price_coin.json')
 
-#def sch_coin():
-    #schedule.every(1).seconds.do(write_json)
-    #schedule.every(1).minutes.do(write_json)
-    #while True:
-        #schedule.run_pending()
 
 def main():
-    write2_json()
+    write_json()
+
 
 if __name__ == '__main__':
     main()
