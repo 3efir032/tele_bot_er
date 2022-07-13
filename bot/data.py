@@ -10,7 +10,7 @@ def fururesnow():
     percentusd = money["FUTURESNOW"][0]['percentusd']
     eur = money["FUTURESNOW"][0]['EUR']
     percenteur = money["FUTURESNOW"][0]['percenteur']
-    return usd, percentusd, eur, percenteur
+    return f"🇺🇸 USD/RUB: {usd} | {percentusd}\n🇪🇺 EUR/RUB: {eur} | {percenteur}"
 
 
 def coin():
