@@ -24,31 +24,31 @@ class Coin:
     def get_btc(self):
         full_page_btc = requests.get(self.URLBTC, headers=self.headers)
         soup = BeautifulSoup(full_page_btc.content, 'lxml')
-        price_btc = soup.find("div", class_="fullHeaderTwoColumnPage--top cryptoTopColumn").find("span", class_="inlineblock").find("span", class_=f"pid-1057391-last").text
+        price_btc = soup.find("div", class_="fullHeaderTwoColumnPage--top cryptoTopColumn").find("div", class_="inlineblock").find("div", class_="top bold inlineblock").find("span", class_=f"pid-1057391-last").text
         return price_btc
 
     def get_etc(self):
         full_page_etc = requests.get(self.URLETC, headers=self.headers)
         soup = BeautifulSoup(full_page_etc.content, 'lxml')
-        price_etc = soup.find("div", class_="fullHeaderTwoColumnPage--top cryptoTopColumn").find("span",class_="inlineblock").find("span", class_=f"pid-1061443-last").text
+        price_etc = soup.find("div", class_="fullHeaderTwoColumnPage--top cryptoTopColumn").find("div", class_="inlineblock").find("div", class_="top bold inlineblock").find("span", class_=f"pid-1061443-last").text
         return price_etc
 
     def get_busd(self):
         full_page_busd = requests.get(self.URLBUSD, headers=self.headers)
         soup = BeautifulSoup(full_page_busd.content, 'lxml')
-        price_busd = soup.find("div", class_="fullHeaderTwoColumnPage--top cryptoTopColumn").find("span",class_="inlineblock").find("span", class_=f"pid-1177192-last").text
+        price_busd = soup.find("div", class_="fullHeaderTwoColumnPage--top cryptoTopColumn").find("div", class_="inlineblock").find("div", class_="top bold inlineblock").find("span", class_=f"pid-1177192-last").text
         return price_busd
 
     def get_usdt(self):
         full_page_usdt = requests.get(self.URLUSDT, headers=self.headers)
         soup = BeautifulSoup(full_page_usdt.content, 'lxml')
-        price_usdt = soup.find("div", class_="fullHeaderTwoColumnPage--top cryptoTopColumn").find("span", class_="inlineblock").find( "span", class_=f"pid-1061453-last").text
+        price_usdt = soup.find("div", class_="fullHeaderTwoColumnPage--top cryptoTopColumn").find("div", class_="inlineblock").find("div", class_="top bold inlineblock").find( "span", class_=f"pid-1061453-last").text
         return price_usdt
 
     def get_bnb(self):
         full_page_bnb = requests.get(self.URLBNB, headers=self.headers)
         soup = BeautifulSoup(full_page_bnb.content, 'lxml')
-        price_bnb = soup.find("div", class_="fullHeaderTwoColumnPage--top cryptoTopColumn").find("span",class_="inlineblock").find("span", class_=f"pid-1061448-last").text
+        price_bnb = soup.find("div", class_="fullHeaderTwoColumnPage--top cryptoTopColumn").find("div", class_="inlineblock").find("div", class_="top bold inlineblock").find("span", class_=f"pid-1061448-last").text
         return price_bnb
 
 
