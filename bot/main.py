@@ -43,7 +43,8 @@ def callback_inline(call):
     try:
         if call.message:
             if call.data == "good":
-                furures_now = fururesnow()
+                usd, percentusd, eur, percenteur = fururesnow()
+                furures_now = f"🇺🇸 USD/RUB: {usd} | {percentusd}\n🇪🇺 EUR/RUB: {eur} | {percenteur}"
                 bot.send_message(call.message.chat.id, furures_now)
     except Exception as e:
         print(repr(e))
