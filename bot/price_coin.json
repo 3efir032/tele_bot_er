@@ -1,11 +1,10 @@
 {
   "COIN": [
     {
-      "btc": "19.000,4",
-      "etc": "1.072,17",
-      "busd": "1,0008",
-      "usdt": "0,9992",
-      "bnb": "223,79"
+      "url": "https://ru.investing.com/crypto/bitcoin",
+      "numcoin": "1057391",
+      "name": "bitcoin",
+      "price": "19.880,9"
     }
   ]
 }
