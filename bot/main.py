@@ -4,17 +4,8 @@ import telebot
 from telebot import types
 from tokenbot import token
 from data import fururesnow, coin
-from investing_parsing import write1_json
-from coin_parsing import write2_json
-
 
 bot = telebot.TeleBot(token)
-
-def info_money():
-    schedule.every(1).minutes.do(write1_json)
-    schedule.every(1).minutes.do(write2_json)
-    while True:
-        schedule.run_pending()
 
 
 @bot.message_handler(commands=['start'])
@@ -47,7 +38,6 @@ def get_text(message):
         bot.send_message(message.chat.id, money_now)
 
 
-
 @bot.callback_query_handler(func=lambda call: True)
 def callback_inline(call):
     try:
@@ -58,7 +48,5 @@ def callback_inline(call):
     except Exception as e:
         print(repr(e))
 
-info_money()
 if __name__ == "__main__":
-
     bot.polling(none_stop=True)
