@@ -23,5 +23,3 @@ def coin():
     bnb = coin['COIN'][3]
     #return f"🔹1 BTC = {btc}\n🔹1 ETC = {etc}\n🔹1 USDT = {usdt}\n🔹1 BNB = {bnb}"
     return f'🔹{btc}\n🔹{etc}\n🔹{usdt}\n🔹{bnb}'
-
-print(coin())
