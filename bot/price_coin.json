@@ -1,11 +1,20 @@
 {
-  "FUTURESNOW": [
-    [
-      "19.792,1",
-      "1.087,43",
-      "0,9992",
-      "1,0008",
-      "225,69"
-    ]
+  "COIN": [
+    {
+      "url": "https://ru.investing.com/crypto/bitcoin",
+      "price": "$ 23.194,7"
+    },
+    {
+      "url": "https://ru.investing.com/crypto/ethereum",
+      "price": "$ 1.716,80"
+    },
+    {
+      "url": "https://ru.investing.com/crypto/tether",
+      "price": "$ 0,9996"
+    },
+    {
+      "url": "https://ru.investing.com/crypto/bnb",
+      "price": "$ 315,60"
+    }
   ]
 }

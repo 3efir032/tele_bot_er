@@ -1,8 +1,10 @@
 import json
 
+
 def read(filename):
     with open(filename, 'r', encoding='utf-8') as file:
         return json.load(file)
+
 
 def fururesnow():
     money = read('futuresmarket.json')
@@ -15,9 +17,8 @@ def fururesnow():
 
 def coin():
     coin = read('price_coin.json')
-    btc = coin['COIN'][0]['btc']
-    etc = coin['COIN'][0]['etc']
-    busd = coin['COIN'][0]['busd']
-    usdt = coin['COIN'][0]['usdt']
-    bnb = coin['COIN'][0]['bnb']
-    return f"➖ 1 BTC - {btc}$\n➖ 1 ETC - {etc}$\n➖ 1 BUSD - {busd}$\n➖ 1 USDT - {usdt}$\n➖ 1 BNB - {bnb}$"
+    btc = coin['COIN'][0]['price']
+    etc = coin['COIN'][1]['price']
+    usdt = coin['COIN'][2]['price']
+    bnb = coin['COIN'][3]['price']
+    return f"🔹1 BTC = {btc}\n🔹1 ETC = {etc}\n🔹1 USDT = {usdt}\n🔹1 BNB = {bnb}"

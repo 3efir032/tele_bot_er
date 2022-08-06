@@ -12,9 +12,9 @@ bot = telebot.TeleBot(token)
 def startbot(message):
     keyboard_reply = types.ReplyKeyboardMarkup(resize_keyboard=True)
     item_one = types.KeyboardButton('🇷🇺RUS')
-    #item_two = types.KeyboardButton('💲Crypto')
+    item_two = types.KeyboardButton('💲Crypto')
     item_tree = types.KeyboardButton('🌏МИР')
-    keyboard_reply.add(item_one, item_tree)
+    keyboard_reply.add(item_one, item_two, item_tree)
     bot.send_message(message.chat.id,
                      f'👋 Привет. Я — чат-бот.\nПоказываю курс фиатных валют, криптовалют и акции.',
                      reply_markup=keyboard_reply)
@@ -29,9 +29,9 @@ def get_text(message):
         markup.add(item1)
         bot.send_message(message.chat.id, usd_now, reply_markup=markup)
 
-    #elif message.text == '💲Crypto':
-        #coin_now = coin()
-        #bot.send_message(message.chat.id, coin_now)
+    elif message.text == '💲Crypto':
+        coin_now = coin()
+        bot.send_message(message.chat.id, coin_now)
 
     elif message.text == '🌏МИР':
         money_now = info_money()
