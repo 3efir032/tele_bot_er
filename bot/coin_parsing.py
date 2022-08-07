@@ -9,15 +9,27 @@ class Coin:
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36'}
 
-    def __init__(self, coin_name='bitcoin'):
+    def __init__(self, coin_name='bitcoin', num_coin='1057391'):
         self.url = f'https://ru.investing.com/crypto/{coin_name}'
+        self.num = num_coin
         self.price = self.getcoin()
+        self.persent = self.get_persent()
 
-    def getcoin(self):
+    def contents(self):
         full_page_btc = requests.get(self.url, headers=self.headers)
         soup = BeautifulSoup(full_page_btc.content, 'html.parser')
-        price = soup.find("div", class_="fullHeaderTwoColumnPage--top cryptoTopColumn").find("div", class_="inlineblock").find("span", class_="inlineblock" ).find('span', id="last_last").text
+        return soup
+
+    def getcoin(self):
+        price = self.contents().find("div", class_="fullHeaderTwoColumnPage--top cryptoTopColumn").find("div", class_="inlineblock").find("span", class_="inlineblock" ).find('span', id="last_last").text
         return price
+
+    def get_persent(self):
+        try:
+            persent = self.contents().find("div", class_="fullHeaderTwoColumnPage--top cryptoTopColumn").find("div", class_="inlineblock").find("span", class_="arial_20").text
+            return persent
+        except AttributeError:
+            return 'None-persent'
 
 def write(data, filename): # Запись файла JSON
     data = json.dumps(data)
@@ -30,10 +42,10 @@ def write_json():
         "COIN": [],
     }
 
-    data["COIN"].append(Coin('bitcoin').__dict__)
-    data["COIN"].append(Coin('ethereum').__dict__)
-    data["COIN"].append(Coin("tether").__dict__)
-    data["COIN"].append(Coin("bnb").__dict__)
+    data["COIN"].append(Coin('bitcoin', '1057391').__dict__)
+    data["COIN"].append(Coin('ethereum', '1061443').__dict__)
+    data["COIN"].append(Coin("tether", '1061453').__dict__)
+    data["COIN"].append(Coin("bnb", '1061448').__dict__)
     write(data, 'price_coin.json')
 
 def main():

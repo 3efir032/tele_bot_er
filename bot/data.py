@@ -18,7 +18,11 @@ def fururesnow():
 def coin():
     coin = read('price_coin.json')
     btc = coin['COIN'][0]['price']
+    btc_percent = coin['COIN'][0]['persent']
     etc = coin['COIN'][1]['price']
+    etc_percent = coin['COIN'][1]['persent']
     usdt = coin['COIN'][2]['price']
+    usdt_percent = coin['COIN'][2]['persent']
     bnb = coin['COIN'][3]['price']
-    return f"🔹1 BTC = {btc}\n🔹1 ETC = {etc}\n🔹1 USDT = {usdt}\n🔹1 BNB = {bnb}"
+    bnb_percent = coin['COIN'][3]['persent']
+    return f"🔹1 BTC = {btc} | {btc_percent}\n🔹1 ETC = {etc} | {etc_percent}\n🔹1 USDT = {usdt} | {usdt_percent }\n🔹1 BNB = {bnb} | {bnb_percent}"

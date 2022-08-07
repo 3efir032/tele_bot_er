@@ -2,19 +2,27 @@
   "COIN": [
     {
       "url": "https://ru.investing.com/crypto/bitcoin",
-      "price": "23.105,1"
+      "num": "1057391",
+      "price": "23.098,2",
+      "persent": "-50,0"
     },
     {
       "url": "https://ru.investing.com/crypto/ethereum",
-      "price": "1.703,99"
+      "num": "1061443",
+      "price": "1.706,01",
+      "persent": "+0,04"
     },
     {
       "url": "https://ru.investing.com/crypto/tether",
-      "price": "0,9999"
+      "num": "1061453",
+      "price": "0,9998",
+      "persent": "+0,0001"
     },
     {
       "url": "https://ru.investing.com/crypto/bnb",
-      "price": "322,70"
+      "num": "1061448",
+      "price": "322,78",
+      "persent": "+6,88"
     }
   ]
 }
