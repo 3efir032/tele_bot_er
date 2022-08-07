@@ -10,14 +10,14 @@ def url_coin(namecoin):
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36'}
     full_page_coin = requests.get(url, headers=headers)
-    soup = BeautifulSoup(full_page_coin.content, 'lxml')
+    soup = BeautifulSoup(full_page_coin.content, 'html.parser')
     return namecoin, soup
 
 
 def price_coin(namecoin):
     namecoin, soup = url_coin(namecoin)
-    price = soup.find("body", class_="takeover dfpTakeovers").find("section", id ="fullColumn").find("div", class_="fullHeaderTwoColumnPage--top cryptoTopColumn").find("div", class_="inlineblock").find("div", class_="top").find("span", class_="inlineblock").text
-    return f"1 {namecoin.title()} = {price[2:]}"
+    price = soup.find("div", class_="fullHeaderTwoColumnPage--top cryptoTopColumn").find("div", class_="inlineblock").find("span", class_="inlineblock" ).find('span', id="last_last").text
+    return f"1 {namecoin.title()} = {price}"
 
 
 def write(data, filename):  # Запись файла JSON
