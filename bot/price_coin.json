@@ -1,8 +1,20 @@
 {
   "COIN": [
-    "1 Bitcoin = 33.149,8",
-    "1 Ethereum = 1.3705,91",
-    "1 Tether = 1,30001",
-    "1 Bnb = 319,370"
+    {
+      "url": "https://ru.investing.com/crypto/bitcoin",
+      "price": "23.105,1"
+    },
+    {
+      "url": "https://ru.investing.com/crypto/ethereum",
+      "price": "1.703,99"
+    },
+    {
+      "url": "https://ru.investing.com/crypto/tether",
+      "price": "0,9999"
+    },
+    {
+      "url": "https://ru.investing.com/crypto/bnb",
+      "price": "322,70"
+    }
   ]
 }

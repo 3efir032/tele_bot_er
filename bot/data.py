@@ -17,9 +17,8 @@ def fururesnow():
 
 def coin():
     coin = read('price_coin.json')
-    btc = coin['COIN'][0]
-    etc = coin['COIN'][1]
-    usdt = coin['COIN'][2]
-    bnb = coin['COIN'][3]
-    #return f"🔹1 BTC = {btc}\n🔹1 ETC = {etc}\n🔹1 USDT = {usdt}\n🔹1 BNB = {bnb}"
-    return f'🔹{btc}\n🔹{etc}\n🔹{usdt}\n🔹{bnb}'
+    btc = coin['COIN'][0]['price']
+    etc = coin['COIN'][1]['price']
+    usdt = coin['COIN'][2]['price']
+    bnb = coin['COIN'][3]['price']
+    return f"🔹1 BTC = {btc}\n🔹1 ETC = {etc}\n🔹1 USDT = {usdt}\n🔹1 BNB = {bnb}"

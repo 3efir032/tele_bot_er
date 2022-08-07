@@ -5,42 +5,39 @@ import json
 """ОПИСАНИЕ - ПАРСИН КРИПТЫ С САЙТА ru.investing.com"""
 
 
-def url_coin(namecoin):
-    url = f'https://ru.investing.com/crypto/{namecoin}'
+class Coin:
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36'}
-    full_page_coin = requests.get(url, headers=headers)
-    soup = BeautifulSoup(full_page_coin.content, 'html.parser')
-    return namecoin, soup
 
+    def __init__(self, coin_name='bitcoin'):
+        self.url = f'https://ru.investing.com/crypto/{coin_name}'
+        self.price = self.getcoin()
 
-def price_coin(namecoin):
-    namecoin, soup = url_coin(namecoin)
-    price = soup.find("div", class_="fullHeaderTwoColumnPage--top cryptoTopColumn").find("div", class_="inlineblock").find("span", class_="inlineblock" ).find('span', id="last_last").text
-    return f"1 {namecoin.title()} = {price}"
+    def getcoin(self):
+        full_page_btc = requests.get(self.url, headers=self.headers)
+        soup = BeautifulSoup(full_page_btc.content, 'html.parser')
+        price = soup.find("div", class_="fullHeaderTwoColumnPage--top cryptoTopColumn").find("div", class_="inlineblock").find("span", class_="inlineblock" ).find('span', id="last_last").text
+        return price
 
-
-def write(data, filename):  # Запись файла JSON
+def write(data, filename): # Запись файла JSON
     data = json.dumps(data)
     data = json.loads(str(data))
     with open(filename, 'w', encoding='utf-8') as file:
-        json.dump(data, file, indent=2)
-
+        json.dump(data, file, indent = 2)
 
 def write_json():
     data = {
         "COIN": [],
     }
-    data["COIN"].append(price_coin('bitcoin'))
-    data["COIN"].append(price_coin('ethereum'))
-    data["COIN"].append(price_coin('tether'))
-    data["COIN"].append(price_coin('bnb'))
-    write(data, 'price_coin.json')
 
+    data["COIN"].append(Coin('bitcoin').__dict__)
+    data["COIN"].append(Coin('ethereum').__dict__)
+    data["COIN"].append(Coin("tether").__dict__)
+    data["COIN"].append(Coin("bnb").__dict__)
+    write(data, 'price_coin.json')
 
 def main():
     write_json()
-
 
 if __name__ == '__main__':
     main()
